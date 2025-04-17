@@ -2,10 +2,24 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-do list</title>
 </head>
 <body>
-  <h1>To-do list</h1>
-  <h2 th:text="${data}"></h2>
+
+<h1>To-do list</h1>
+
+<form th:action="@{/add}" th:object="${newTodo}" method="post">
+  <input type="text" th:field="*{title}" placeholder="Enter task" required>
+  <button type="submit">Add task</button>
+</form>
+
+<ul>
+  <li th:each="item : ${allTodos}">
+    <span th:text="${item.title}">Task title</span>
+  </li>
+</ul>
+
 </body>
 </html>
+
