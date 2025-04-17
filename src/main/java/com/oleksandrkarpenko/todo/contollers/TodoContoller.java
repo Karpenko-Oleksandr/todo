@@ -45,6 +45,12 @@ public class TodoContoller implements CommandLineRunner {
         return "redirect:/";
     }
 
+    @PostMapping("/removeAll")
+    public String removeAllTodoItems() {
+        todoItemRepository.deleteAll();
+        return "redirect:/";
+    }
+
     @Override
     public void run(String... args) throws Exception {
         todoItemRepository.save(new TodoItem("Item 1"));
