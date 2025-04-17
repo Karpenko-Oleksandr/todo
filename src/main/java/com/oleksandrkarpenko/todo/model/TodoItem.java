@@ -9,15 +9,13 @@ import jakarta.persistence.Id;
 public class TodoItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Додаємо стратегію генерації ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
 
-    // Порожній конструктор потрібен для JPA
     public TodoItem() {}
 
-    // Конструктор для швидкого створення задачі з назвою
     public TodoItem(String title) {
         this.title = title;
     }
